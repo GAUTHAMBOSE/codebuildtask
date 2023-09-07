@@ -9,8 +9,7 @@ phases:
       - ls -l
       - ls 
 
-      - echo "$(git status)"
-      - git status
+ 
       - git log
       - git log --oneline
       - git branch -a
@@ -60,3 +59,5 @@ phases:
       # - git diff
       # - echo "$(git branch)"
       # - git branch
+        # - echo "$(git status)"
+        # - git status
