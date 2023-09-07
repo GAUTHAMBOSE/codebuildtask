@@ -1,0 +1,54 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Starting build phase..."
+      - echo $(pwd)
+      - git --version
+      - ls -l
+      - ls 
+      - git diff
+      - echo "$(git branch)"
+      - echo "$(git status)"
+      - git status
+      - git log
+      - git log --oneline
+      - git branch -a
+      - git log --oneline --graph
+      - git log --oneline --graph --decorate --all
+      - git log --oneline --graph --decorate --all --simplify-by-decoration
+  
+
+
+
+      - HEAD_COMMIT=$(git rev-parse HEAD)
+      - PARENT_COMMIT=$(git rev-parse HEAD~1)
+      - git diff --name-only $PARENT_COMMIT $HEAD_COMMIT > changed_files.txt || touch changed_files.txt
+      - cat changed_files.txt
+       
+      - |
+        for i in $(cat changed_files.txt); do
+          echo $i
+          if [ "$i" = "kk.txt" ]; then
+              echo "kk.txt file changes"
+            aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "kkk.txt folder changes"
+              echo "SNS notification sent to email"
+          fi
+          if [ "$i" = "bose.txt" ]; then
+              echo "bose.txt has changed"
+              aws sns publish --topic-arn arn:aws:sns:us-east-1:824738494196:temp --message "bose.txt has changed"
+              echo "SNS notification sent to email"
+          fi                                              
+        done
+
+
+
+######################################################
+#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
+ 
+###  git diff --name-only HEAD HEAD^  OR  git diff --name-only HEAD HEAD~1 or git diff --name-only main HEAD~1
+
+
+###  git log -n 1 --pretty=format:%H HEAD^
+
+#[Container] 2023/09/07 06:18:16 Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: git diff --name-only HEAD HEAD~1. Reason: exit status 128 
