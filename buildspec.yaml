@@ -10,12 +10,6 @@ phases:
       - ls 
 
  
-      - git log
-      - git log --oneline
-      - git branch -a
-      - git log --oneline --graph
-      - git log --oneline --graph --decorate --all
-      - git log --oneline --graph --decorate --all --simplify-by-decoration
   
 
 
@@ -61,3 +55,9 @@ phases:
       # - git branch
         # - echo "$(git status)"
         # - git status
+      # - git log
+      # - git log --oneline
+      # - git branch -a
+      # - git log --oneline --graph
+      # - git log --oneline --graph --decorate --all
+      # - git log --oneline --graph --decorate --all --simplify-by-decoration
