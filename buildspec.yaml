@@ -9,8 +9,6 @@ phases:
       - ls -l
       - ls 
 
-      - echo "$(git branch)"
-      - git branch
       - echo "$(git status)"
       - git status
       - git log
@@ -57,3 +55,8 @@ phases:
 
 #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
 # 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
+
+
+      # - git diff
+      # - echo "$(git branch)"
+      # - git branch
