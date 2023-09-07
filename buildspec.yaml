@@ -8,7 +8,7 @@ phases:
       - git --version
       - ls -l
       - ls 
-      - git diff
+
       - echo "$(git branch)"
       - git branch
       - echo "$(git status)"
